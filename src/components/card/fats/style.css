@@ -1,0 +1,56 @@
+/* FAT Card Specific Styling */
+
+/* 
+  IMPORTANT: Do NOT set width: auto or width: 100% on .fat-card.
+  React-slick sets an inline width on the slide WRAPPER div it creates around each child.
+  The inner card just needs to fill that wrapper fully using box-sizing.
+*/
+.fat-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 15px;
+    /* Intentionally using box-sizing so padding doesn't overflow the slide wrapper */
+    box-sizing: border-box;
+    text-align: center;
+    border: 1px solid #edf2f7;
+    transition: all 0.3s ease;
+    /* Do not override display — let slick control the slide wrapper layout */
+    min-height: 180px;
+}
+
+.fat-card:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border-color: #cbd5e0;
+    transform: translateY(-3px);
+}
+
+.fat-card img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 10px auto;
+    display: block;
+}
+
+.fat-card h3 {
+    font-size: 0.9rem;
+    color: #1e293b;
+    margin: 8px 0 4px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.fat-card p {
+    font-weight: 700;
+    color: #10b981;
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* Style the dots for a premium feel */
+.slick-dots li button:before {
+    color: #10b981 !important;
+    font-size: 10px !important;
+}

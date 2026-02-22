@@ -1,0 +1,128 @@
+/* Product Card Styling */
+.product-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 24px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid #f1f5f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 280px;
+    height: 480px; /* Fixed height for uniformity */
+    margin: 10px;
+    position: relative;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.product-card img {
+    width: 160px;
+    height: 160px;
+    object-fit: contain;
+    margin-bottom: 24px;
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.05));
+}
+
+.product-card h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 8px;
+    height: 3rem;
+    overflow: hidden;
+}
+
+.product-card p:nth-of-type(1) {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-bottom: 20px;
+    height: 3rem;
+    overflow: hidden;
+    line-height: 1.5;
+}
+
+.product-card p:nth-of-type(2) {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: auto;
+}
+
+/* Stepper Styling */
+.stepper {
+    display: flex;
+    align-items: center;
+    background: #f8fafc;
+    border-radius: 50px;
+    padding: 4px;
+    margin-top: 20px;
+    border: 1px solid #e2e8f0;
+}
+
+.stepper button {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: white;
+    color: #0f172a;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.stepper button:hover {
+    background: #10b981;
+    color: white;
+}
+
+.stepper span {
+    margin: 0 16px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    min-width: 20px;
+}
+
+.product-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #10b981, #3b82f6);
+    border-radius: 20px 20px 0 0;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.product-card:hover::after {
+    opacity: 1;
+}
+
+/* FATs Container Styling */
+.fats-container {
+    width: 100%;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.fats-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #64748b;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+
