@@ -2,14 +2,14 @@
 // Currently this component is just a View / part of Presentation layer, hence it will get the FATs data, instead of productId that is getting updated
 // It is NOT the responsibilty of this view to get the FATs, it will just render them if needed
 
-
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Fat from "../card/fats/fat"; // Import the Fat component
+import Fat from "../card/fats/fat";
+import type { CarouselProps } from '../../types';
 
-function Carousel({ fats }) { // Destructure fats from props
-    if(!fats || !Array.isArray(fats) || fats.length === 0){
+function Carousel({ fats, productsQuantityMap, setProductsQuantityMap }: CarouselProps) {
+    if (!fats || !Array.isArray(fats) || fats.length === 0) {
         return null;
     }
 
@@ -24,12 +24,17 @@ function Carousel({ fats }) { // Destructure fats from props
     };
 
     return (
-    <Slider {...settings}>
-        {fats.map((fat) => (
-            <Fat key={fat.id} {...fat} />
-        ))}
-    </Slider>
-    )
+        <Slider {...settings}>
+            {fats.map((fat) => (
+                <Fat 
+                    key={fat.id} 
+                    fatProductInfo={fat} 
+                    productsQuantityMap={productsQuantityMap} 
+                    setProductsQuantityMap={setProductsQuantityMap} 
+                />
+            ))}
+        </Slider>
+    );
 }
 
 export default Carousel;
