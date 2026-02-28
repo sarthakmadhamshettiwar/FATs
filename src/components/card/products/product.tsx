@@ -24,7 +24,7 @@ async function handleProductUpdate(
         // get the frequently added products for the current product: currently this is called everytime the prodduct is added
         // TODO: optimise it to only call if count is changing from  0->1 or use localStorage to cache the FATs if 
         // the product was added in customer journey already 
-        if (!localStorage.getItem(`frequentlyAddedProductsForId_${id}`)) {
+        if (import.meta.env.VITE_IS_LOCAL_STORAGE_CACHE_ENABLED === "true" && !localStorage.getItem(`frequentlyAddedProductsForId_${id}`)) {
             const frequentlyAddedProductsForId = await getFrequentlyAddedTogetherForProduct(id);
             if (frequentlyAddedProductsForId) {
                 localStorage.setItem(`frequentlyAddedProductsForId_${id}`, JSON.stringify(frequentlyAddedProductsForId));

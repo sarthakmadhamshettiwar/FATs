@@ -51,6 +51,7 @@ const frequentlyAddedTogether: Record<number, FatProduct[]> = {
   ]
 };
 
+// this API will return static data only: no customer selection quantity is returned
 async function getFrequentlyAddedTogetherForProduct(id: number): Promise<FatProduct[] | undefined> {
   await new Promise(resolve => setTimeout(resolve, 1000)); // to stimulate external API call
   return frequentlyAddedTogether[id];
