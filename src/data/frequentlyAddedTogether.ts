@@ -1,4 +1,6 @@
-const frequentlyAddedTogether = {
+import type { FatProduct } from '../types';
+
+const frequentlyAddedTogether: Record<number, FatProduct[]> = {
   1: [ // Mangoes
     { id: 101, name: "Fresh Bananas", price: 50, image: "https://images.unsplash.com/photo-1603833665858-e61d17a86224?w=400&q=80" },
     { id: 102, name: "Valencia Oranges", price: 120, image: "https://images.unsplash.com/photo-1547514701-42782101795e?w=400&q=80" },
@@ -49,8 +51,10 @@ const frequentlyAddedTogether = {
   ]
 };
 
-async function getFrequentlyAddedTogetherForProduct(id){
+// this API will return static data only: no customer selection quantity is returned
+async function getFrequentlyAddedTogetherForProduct(id: number): Promise<FatProduct[] | undefined> {
   await new Promise(resolve => setTimeout(resolve, 1000)); // to stimulate external API call
   return frequentlyAddedTogether[id];
 }
+
 export default getFrequentlyAddedTogetherForProduct;
