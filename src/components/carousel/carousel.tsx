@@ -21,6 +21,24 @@ function Carousel({ fats, productsQuantityMap, setProductsQuantityMap }: Carouse
         dots: true,
         autoplay: true,
         autoplaySpeed: 3000,
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: Math.min(fats.length, 2),
+                    slidesToScroll: 1,
+                    dots: true,
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    dots: true,
+                }
+            }
+        ]
     };
 
     return (
