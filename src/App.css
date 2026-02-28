@@ -47,6 +47,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: flex-start; /* Align cards to top to prevent overlap */
   gap: 24px;
   padding: 20px 0;
 }
