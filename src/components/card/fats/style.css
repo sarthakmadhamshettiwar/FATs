@@ -7,15 +7,16 @@
 */
 .fat-card {
     background: #ffffff;
-    border-radius: 12px;
-    padding: 15px;
+    border-radius: 10px;
+    padding: 10px;
     /* Intentionally using box-sizing so padding doesn't overflow the slide wrapper */
     box-sizing: border-box;
     text-align: center;
     border: 1px solid #edf2f7;
     transition: all 0.3s ease;
     /* Do not override display — let slick control the slide wrapper layout */
-    min-height: 180px;
+    min-height: 140px;
+    margin: 0 4px;
 }
 
 .fat-card:hover {
@@ -25,28 +26,74 @@
 }
 
 .fat-card img {
-    width: 90px;
-    height: 90px;
+    width: 60px;
+    height: 60px;
     object-fit: cover;
-    border-radius: 10px;
-    margin: 10px auto;
+    border-radius: 8px;
+    margin: 6px auto;
     display: block;
 }
 
 .fat-card h3 {
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     color: #1e293b;
-    margin: 8px 0 4px;
+    margin: 4px 0 2px;
     overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    line-height: 1.2;
+    word-wrap: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 
 .fat-card p {
     font-weight: 700;
     color: #10b981;
     margin: 0;
-    font-size: 1rem;
+    font-size: 0.85rem;
+}
+
+/* FAT Stepper Styling - Smaller than product card stepper */
+.fat-stepper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8fafc;
+    border-radius: 30px;
+    padding: 2px;
+    margin-top: 6px;
+    border: 1px solid #e2e8f0;
+}
+
+.fat-stepper button {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: none;
+    background: white;
+    color: #0f172a;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    padding: 0;
+}
+
+.fat-stepper button:hover {
+    background: #10b981;
+    color: white;
+}
+
+.fat-stepper span {
+    margin: 0 8px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    min-width: 16px;
+    text-align: center;
 }
 
 /* Style the dots for a premium feel */
