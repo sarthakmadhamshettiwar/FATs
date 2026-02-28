@@ -13,9 +13,17 @@ async function handleProductUpdate(id, updateType, count, setCount, setFats){
         const newCount = Math.min(5, count + 1);
         setCount(newCount);
 
-        // get the frequently added products for the current product
-        const frequentlyAddedProductsForId = await getFrequentlyAddedTogetherForProduct(id);
-        setFats(frequentlyAddedProductsForId);
+        // get the frequently added products for the current product: currently this is called everytime the prodduct is added
+        // TODO: optimise it to only call if count is changing from  0->1 or use localStorage to cache the FATs if 
+        // the product was added in customer journey already 
+        if(!localStorage.getItem(`frequentlyAddedProductsForId_${id}`)){
+            const frequentlyAddedProductsForId = await getFrequentlyAddedTogetherForProduct(id);
+            localStorage.setItem(`frequentlyAddedProductsForId_${id}`, JSON.stringify(frequentlyAddedProductsForId));
+            setFats(frequentlyAddedProductsForId);
+        }
+        else{
+            setFats(JSON.parse(localStorage.getItem(`frequentlyAddedProductsForId_${id}`)));
+        }
     }else{
         const newCount = Math.max(0, count - 1);
         setCount(newCount);
