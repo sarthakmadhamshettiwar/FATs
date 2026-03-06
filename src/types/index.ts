@@ -16,22 +16,22 @@ export interface FatProduct {
   image: string;
 }
 
-export type ProductsQuantityMap = Record<number, number>;
+export type ProductsSelectionMap = Record<number, number>;
 
 export interface ProductProps {
   productInfo: Product;
-  productsQuantityMap: ProductsQuantityMap;
-  setProductsQuantityMap: Dispatch<SetStateAction<ProductsQuantityMap>>;
+  ProductsSelectionMap: ProductsSelectionMap;
+  setProductsSelectionMap: Dispatch<SetStateAction<ProductsSelectionMap>>;
 }
 
 export interface FatProductProps {
   fatProductInfo: FatProduct;
-  productsQuantityMap: ProductsQuantityMap;
-  setProductsQuantityMap: Dispatch<SetStateAction<ProductsQuantityMap>>;
+  ProductsSelectionMap: ProductsSelectionMap;
+  setProductsSelectionMap: Dispatch<SetStateAction<ProductsSelectionMap>>;
 }
 
 export interface CarouselProps {
   fats: FatProduct[];
-  productsQuantityMap: ProductsQuantityMap;
-  setProductsQuantityMap: Dispatch<SetStateAction<ProductsQuantityMap>>;
+  ProductsSelectionMap: ProductsSelectionMap;
+  setProductsSelectionMap: Dispatch<SetStateAction<ProductsSelectionMap>>;
 }

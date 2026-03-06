@@ -14,16 +14,13 @@ async function handleProductUpdate(
     id: number,
     updateType: "add" | "remove",
     count: number,
-    setProductsQuantityMap: Dispatch<SetStateAction<Record<number, number>>>,
+    setProductsSelectionMap: Dispatch<SetStateAction<Record<number, number>>>,
     setFats: Dispatch<SetStateAction<FatProduct[]>>
 ) {
     if (updateType === "add") {
         const newCount = Math.min(5, count + 1);
-        setProductsQuantityMap(prev => ({ ...prev, [id]: newCount }));
+        setProductsSelectionMap(prev => ({ ...prev, [id]: newCount }));
 
-        // get the frequently added products for the current product: currently this is called everytime the prodduct is added
-        // TODO: optimise it to only call if count is changing from  0->1 or use localStorage to cache the FATs if 
-        // the product was added in customer journey already 
         if (import.meta.env.VITE_IS_LOCAL_STORAGE_CACHE_ENABLED === "true" && !localStorage.getItem(`frequentlyAddedProductsForId_${id}`)) {
             const frequentlyAddedProductsForId = await getFrequentlyAddedTogetherForProduct(id);
             if (frequentlyAddedProductsForId) {
@@ -38,7 +35,7 @@ async function handleProductUpdate(
         }
     } else {
         const newCount = Math.max(0, count - 1);
-        setProductsQuantityMap(prev => ({ ...prev, [id]: newCount }));
+        setProductsSelectionMap(prev => ({ ...prev, [id]: newCount }));
 
         if (newCount === 0) {
             setFats([]);
@@ -46,9 +43,9 @@ async function handleProductUpdate(
     }
 }
 
-function Product({ productInfo, productsQuantityMap, setProductsQuantityMap }: ProductProps) {
+function Product({ productInfo, ProductsSelectionMap, setProductsSelectionMap }: ProductProps) {
     const { id, name, description, price, image } = productInfo;
-    const count = productsQuantityMap[id] ?? 0;
+    const count = ProductsSelectionMap[id] ?? 0;
     const [fats, setFats] = useState<FatProduct[]>([]);
 
     return (
@@ -58,17 +55,17 @@ function Product({ productInfo, productsQuantityMap, setProductsQuantityMap }: P
             <p>{description}</p>
             <p>${price}</p>
             <div className="stepper">
-                <button onClick={() => handleProductUpdate(id, "remove", count, setProductsQuantityMap, setFats)}>-</button>
+                <button onClick={() => handleProductUpdate(id, "remove", count, setProductsSelectionMap, setFats)}>-</button>
                 <span>{count}</span>
-                <button onClick={() => handleProductUpdate(id, "add", count, setProductsQuantityMap, setFats)}>+</button>
+                <button onClick={() => handleProductUpdate(id, "add", count, setProductsSelectionMap, setFats)}>+</button>
             </div>
             {fats && fats.length > 0 && (
                 <div className="fats-container">
                     <h4 className="fats-title">Frequently Added Together</h4>
                     <Carousel 
                         fats={fats} 
-                        productsQuantityMap={productsQuantityMap} 
-                        setProductsQuantityMap={setProductsQuantityMap} 
+                        ProductsSelectionMap={ProductsSelectionMap} 
+                        setProductsSelectionMap={setProductsSelectionMap} 
                     />
                 </div>
             )}

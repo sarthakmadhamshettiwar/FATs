@@ -1,16 +1,16 @@
 import './CartSummary.css';
-import type { ProductsQuantityMap } from '../../types';
+import type { ProductsSelectionMap } from '../../types';
 import products from '../../data/products';
 
 interface CartSummaryProps {
-  productsQuantityMap: ProductsQuantityMap;
+  ProductsSelectionMap: ProductsSelectionMap;
 }
 
-function CartSummary({ productsQuantityMap }: CartSummaryProps) {
+function CartSummary({ ProductsSelectionMap }: CartSummaryProps) {
   // Calculate total items and total price
-  const totalItems = Object.values(productsQuantityMap).reduce((sum, qty) => sum + qty, 0);
+  const totalItems = Object.values(ProductsSelectionMap).reduce((sum, qty) => sum + qty, 0);
   
-  const totalPrice = Object.entries(productsQuantityMap).reduce((sum, [id, qty]) => {
+  const totalPrice = Object.entries(ProductsSelectionMap).reduce((sum, [id, qty]) => {
     const product = products.find(p => p.id === Number(id));
     return sum + (product ? product.price * qty : 0);
   }, 0);
