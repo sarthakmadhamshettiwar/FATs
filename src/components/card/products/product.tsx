@@ -43,9 +43,9 @@ async function handleProductUpdate(
     }
 }
 
-function Product({ productInfo, ProductsSelectionMap, setProductsSelectionMap }: ProductProps) {
+function Product({ productInfo, productsSelectionMap, setProductsSelectionMap }: ProductProps) {
     const { id, name, description, price, image } = productInfo;
-    const count = ProductsSelectionMap[id] ?? 0;
+    const count = productsSelectionMap[id] ?? 0;
     const [fats, setFats] = useState<FatProduct[]>([]);
 
     return (
@@ -64,7 +64,7 @@ function Product({ productInfo, ProductsSelectionMap, setProductsSelectionMap }:
                     <h4 className="fats-title">Frequently Added Together</h4>
                     <Carousel 
                         fats={fats} 
-                        ProductsSelectionMap={ProductsSelectionMap} 
+                        productsSelectionMap={productsSelectionMap} 
                         setProductsSelectionMap={setProductsSelectionMap} 
                     />
                 </div>
