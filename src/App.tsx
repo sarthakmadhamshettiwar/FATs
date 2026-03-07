@@ -21,16 +21,16 @@ function App() {
 
   return (
     <div className="app-wrapper">
-      <Header productsQuantityMap={productsQuantityMap} />
+      <Header productsSelectionMap={productsSelectionMap} />
       <div className="main-container">
-        <CartSummary productsQuantityMap={productsQuantityMap} />
+        <CartSummary productsSelectionMap={productsSelectionMap} />
         <div className="slider-container">
           {products.map((product) => (
             <Product 
               key={product.id} 
               productInfo={product} 
-              productsQuantityMap={productsQuantityMap} 
-              setProductsQuantityMap={setProductsQuantityMap} 
+              productsSelectionMap={productsSelectionMap} 
+              setProductsSelectionMap={setProductsSelectionMap} 
             />
           ))}
         </div>
