@@ -8,7 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Fat from "../card/fats/fat";
 import type { CarouselProps } from '../../types';
 
-function Carousel({ fats, ProductsSelectionMap, setProductsSelectionMap }: CarouselProps) {
+function Carousel({ fats, productsSelectionMap, setProductsSelectionMap }: CarouselProps) {
     if (!fats || !Array.isArray(fats) || fats.length === 0) {
         return null;
     }
@@ -47,7 +47,7 @@ function Carousel({ fats, ProductsSelectionMap, setProductsSelectionMap }: Carou
                 <Fat 
                     key={fat.id} 
                     fatProductInfo={fat} 
-                    ProductsSelectionMap={ProductsSelectionMap} 
+                    ProductsSelectionMap={productsSelectionMap} 
                     setProductsSelectionMap={setProductsSelectionMap} 
                 />
             ))}

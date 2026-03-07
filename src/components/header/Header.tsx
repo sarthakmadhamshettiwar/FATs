@@ -2,11 +2,11 @@ import './Header.css';
 import type { ProductsSelectionMap } from '../../types';
 
 interface HeaderProps {
-  ProductsSelectionMap: ProductsSelectionMap;
+  productsSelectionMap: ProductsSelectionMap;
 }
 
-function Header({ ProductsSelectionMap }: HeaderProps) {
-  const totalItems = Object.values(ProductsSelectionMap).reduce((sum, qty) => sum + qty, 0);
+function Header({ productsSelectionMap }: HeaderProps) {
+  const totalItems = Object.values(productsSelectionMap).reduce((sum, qty) => sum + qty, 0);
 
   return (
     <header className="app-header">

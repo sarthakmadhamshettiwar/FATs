@@ -20,7 +20,7 @@ export type ProductsSelectionMap = Record<number, number>;
 
 export interface ProductProps {
   productInfo: Product;
-  ProductsSelectionMap: ProductsSelectionMap;
+  productsSelectionMap: ProductsSelectionMap;
   setProductsSelectionMap: Dispatch<SetStateAction<ProductsSelectionMap>>;
 }
 
@@ -32,6 +32,6 @@ export interface FatProductProps {
 
 export interface CarouselProps {
   fats: FatProduct[];
-  ProductsSelectionMap: ProductsSelectionMap;
+  productsSelectionMap: ProductsSelectionMap;
   setProductsSelectionMap: Dispatch<SetStateAction<ProductsSelectionMap>>;
 }
